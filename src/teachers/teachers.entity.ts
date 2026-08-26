@@ -1,8 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, PrimaryColumn } from 'typeorm';
 
 @Entity('teachers')
 export class Teacher {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryColumn('uuid')
     id: string;
 
     @Column()
@@ -11,8 +11,8 @@ export class Teacher {
     @Column({ unique: true })
     email: string;
     
-    @Column({ nullable: false })
-    password: string;
+ @Column({nullable:false})
+ role: string;
 
     @CreateDateColumn()
     createdAt: Date;
