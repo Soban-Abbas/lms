@@ -45,7 +45,6 @@ export class AuthService {
         }
 
         return{
-            id: data.user.id,
             email: data.user.email,
             role: data.user.user_metadata.role, // <-- seedha metadata se milega, DB query nahi lagi
             access_token: data.session.access_token,

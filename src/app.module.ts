@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { SupabaseModule } from './supabase/supabase.module';
 import { StudentsModule } from './students/students.module';
+import { CourseModule } from './course/course.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),  // Step 1: .env padho
@@ -27,6 +28,7 @@ import { StudentsModule } from './students/students.module';
     AuthModule,
     SupabaseModule,
     StudentsModule,
+    CourseModule,
   ],
   controllers: [AppController],
   providers: [AppService],

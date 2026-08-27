@@ -15,5 +15,4 @@ role:string ;
     @CreateDateColumn()
     createdAt: Date;
 
-    // Baad mein: @OneToMany(() => Enrollment, ...) yahan add hoga
 }
