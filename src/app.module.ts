@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import {  ConfigModule,ConfigService } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TeachersModule } from './teachers/teachers.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { SupabaseModule } from './supabase/supabase.module';
 import { StudentsModule } from './students/students.module';
-import { CourseModule } from './course/course.module';
+
+import { ClassroomModule } from './classroom/classroom.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),  // Step 1: .env padho
@@ -22,15 +23,15 @@ import { CourseModule } from './course/course.module';
         synchronize: true,
         ssl: { rejectUnauthorized: false },
       }),
-      
+
     }),
     TeachersModule,
     AuthModule,
     SupabaseModule,
     StudentsModule,
-    CourseModule,
+    ClassroomModule
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

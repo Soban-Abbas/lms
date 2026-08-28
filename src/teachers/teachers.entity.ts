@@ -1,5 +1,5 @@
-import { Course } from 'src/course/course.entity';
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, PrimaryColumn, ManyToMany, JoinTable } from 'typeorm';
+import { Classroom } from 'src/classroom/classroom.entity';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, PrimaryColumn, ManyToMany, OneToMany, } from 'typeorm';
 
 @Entity('teachers')
 export class Teacher {
@@ -11,14 +11,14 @@ export class Teacher {
 
     @Column({ unique: true })
     email: string;
-    
- @Column({nullable:false})
- role: string;
+
+    @Column({ nullable: false })
+    role: string;
 
     @CreateDateColumn()
     createdAt: Date;
 
-    @ManyToMany(() => Course, (course) => course.teachers)
-    courses: Course[];
-    
+    @OneToMany(() => Classroom, (classroom) => classroom.teacher)
+    classrooms:Classroom[]
+
 }

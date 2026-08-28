@@ -1,8 +1,8 @@
 import { Teacher } from 'src/teachers/teachers.entity';
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn,ManyToMany,JoinTable } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn,ManyToMany,JoinTable, OneToMany, ManyToOne } from 'typeorm';
 
 @Entity()
-export class Course {
+export class Classroom {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -15,7 +15,6 @@ export class Course {
     @CreateDateColumn()
     createdAt: Date;
 
-    @ManyToMany(() => Teacher, (teacher) => teacher.courses)
-    @JoinTable()
-    teachers: Teacher[];
+    @ManyToOne(()=>Teacher,(teachers)=>teachers.classrooms)
+    teacher:Teacher
 }
