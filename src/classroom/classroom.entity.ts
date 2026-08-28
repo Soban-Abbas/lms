@@ -12,6 +12,8 @@ export class Classroom {
     @Column({ nullable: true })
     description: string;
 
+    @Column({unique:true})
+    joiningCode : string
     @CreateDateColumn()
     createdAt: Date;
 

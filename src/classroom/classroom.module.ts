@@ -9,7 +9,8 @@ import { SupabaseModule } from 'src/supabase/supabase.module';
 @Module({
     imports: [TypeOrmModule.forFeature([Classroom]), SupabaseModule, AuthModule],
     providers: [ClassroomService],
-    controllers: [classroomController]
+    controllers: [classroomController],
+    
 })
 export class ClassroomModule { }
 

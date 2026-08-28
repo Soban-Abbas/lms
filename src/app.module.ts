@@ -9,6 +9,7 @@ import { SupabaseModule } from './supabase/supabase.module';
 import { StudentsModule } from './students/students.module';
 
 import { ClassroomModule } from './classroom/classroom.module';
+import { EnrollmentModule } from './enrollment/enrollment.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),  // Step 1: .env padho
@@ -29,7 +30,8 @@ import { ClassroomModule } from './classroom/classroom.module';
     AuthModule,
     SupabaseModule,
     StudentsModule,
-    ClassroomModule
+    ClassroomModule,
+    EnrollmentModule
   ],
   controllers: [AppController],
   providers: [AppService],
