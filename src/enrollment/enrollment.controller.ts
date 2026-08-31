@@ -1,4 +1,4 @@
-import { Body, Controller,Post,Req, UseGuards } from '@nestjs/common';
+import { Body, Controller,Post,Req,Get, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { EnrollmentService } from './enrollment.service';
@@ -14,5 +14,11 @@ joinclassRoom(@Body() body:{joiningCode} , @Req() req){
 return this.enrollmentService.joinclassRoom(body.joiningCode,req.user.id)
 }
 
+@Get()
+@UseGuards(JwtAuthGuard,RolesGuard)
+@Roles('student')
+enrollments(@Req() req){
+return this.enrollmentService.allEnrollments(req.user.id)
+}
 
 }
