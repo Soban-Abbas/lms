@@ -1,8 +1,8 @@
 import { IsString, IsNotEmpty, IsOptional, IsDateString } from 'class-validator';
 
 export class CreateAssignmentDto {
-    @IsString()
-    @IsNotEmpty()
+    @IsString({message:"title should be string"})
+    @IsNotEmpty({"message":"title should not be empty"})
     title: string;
 
     @IsOptional()

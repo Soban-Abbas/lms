@@ -33,7 +33,7 @@ export class AssignmentController {
                 fileIsRequired:false
             }),
         )
-        file :Express.Multer.File,
+        file ? :Express.Multer.File,
         @Req() req,
     ) {
         console.log(body,req)
