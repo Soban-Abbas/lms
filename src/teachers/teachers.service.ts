@@ -12,6 +12,7 @@ export class TeacherService {
 
   async createTeacher(id: string, name: string, email: string,role :string ) {
     const teacher = this.teacherRepository.create({ id, name, email,role });
-    return this.teacherRepository.save(teacher);
+  this.teacherRepository.save(teacher);
+  return "Registration successfull please login !"
   }
 }

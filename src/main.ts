@@ -7,6 +7,7 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({
       stopAtFirstError:true,
+      transform :true,
       // extra field bheje to error do ("extra should not exist")
       exceptionFactory: (errors) => {
         const formattedErrors: Record<string, string[]> = {};

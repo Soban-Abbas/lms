@@ -16,9 +16,11 @@ export class classroomController {
 
 @Get()
 @UseGuards(JwtAuthGuard, RolesGuard)
-@Roles('teacher','student')
+@Roles('teacher', 'student')
 getClassroom(@Req() req){
-return this.classroomService.getClassroom(req.user.id)
+    console.log("hello")
+return this.classroomService.getClassroom(req.user.id, req.user.role
+)
 }
 
    

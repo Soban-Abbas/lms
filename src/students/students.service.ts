@@ -12,6 +12,7 @@ export class StudentService {
 
   async createStudent(id: string, name: string, email: string,role :string ) {
       const student = this.studentRepository.create({ id, name, email,role });
-      return this.studentRepository.save(student);
+       this.studentRepository.save(student);
+       return "Registration Successfull please login !"
   }
 }

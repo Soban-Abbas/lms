@@ -11,7 +11,7 @@ export class AuthService {
         private studentService: StudentService,
     ) {}
 
-    async register(name: string, email: string, password: string, role) {
+    async register(name: string, email: string, password: string, role:string) {
         const { data, error } = await this.supabaseService.client.auth.signUp({
             email,
             password,

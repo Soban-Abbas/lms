@@ -1,8 +1,8 @@
-import { IsString, IsNotEmpty, IsOptional, IsDateString } from 'class-validator';
-
+import { IsString, IsNotEmpty, IsOptional, IsDateString,MinDate } from 'class-validator';
+import { Type } from 'class-transformer';
 export class CreateAssignmentDto {
     @IsString({message:"title should be string"})
-    @IsNotEmpty({"message":"title should not be empty"})
+    @IsNotEmpty({message:"title should not be empty"})
     title: string;
 
     @IsOptional()
@@ -10,6 +10,7 @@ export class CreateAssignmentDto {
     description?: string;
 
     @IsNotEmpty()
-    @IsDateString()
+    @Type(()=>Date)
+    @MinDate(() => new Date(), { message: 'dueDate must be a future date' })
     dueDate: string;
 }

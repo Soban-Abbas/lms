@@ -16,7 +16,7 @@ export class Assignment {
     @Column({ nullable: true })
     fileUrl: string; // Supabase Storage se mila hua file link
 
-    @Column({ nullable: true })
+    @Column({ nullable: true,})
     dueDate: Date;
 
     @CreateDateColumn()
@@ -25,6 +25,6 @@ export class Assignment {
     @ManyToOne(() => Teacher)
     teacher: Teacher;
 
-    @ManyToOne(() => Classroom)
+    @ManyToOne(() => Classroom,(classroom)=>classroom.assignments)
     classroom: Classroom;
 }
