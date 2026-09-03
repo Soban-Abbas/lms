@@ -11,6 +11,7 @@ import { StudentsModule } from './students/students.module';
 import { ClassroomModule } from './classroom/classroom.module';
 import { EnrollmentModule } from './enrollment/enrollment.module';
 import { AssignmentModule } from './assignment/assignment.module';
+import { SubmissionModule } from './submission/submission.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),  // Step 1: .env padho
@@ -33,7 +34,8 @@ import { AssignmentModule } from './assignment/assignment.module';
     StudentsModule,
     ClassroomModule,
     EnrollmentModule,
-    AssignmentModule
+    AssignmentModule,
+    SubmissionModule
   ],
   controllers: [AppController],
   providers: [AppService],

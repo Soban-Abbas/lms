@@ -69,7 +69,6 @@ return {
 
 const classroomsEnrollments= await this.enrollmentRepository.find({where:{student:{id:id}},relations:{classroom:{assignments:true,teacher:true}},select:{
     classroom:{
-        id:true,
         title:true,
         description:true,
         teacher:{
@@ -77,6 +76,7 @@ const classroomsEnrollments= await this.enrollmentRepository.find({where:{studen
             email:true
         },
         assignments:{
+            id:true,
             title:true,
             description:true,
             dueDate:true,
